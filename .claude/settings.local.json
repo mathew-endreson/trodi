@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(& \"C:\\\\Users\\\\sEiF\\\\AppData\\\\Roaming\\\\npm\\\\skillui.cmd\" --url https://aymenpromotion-dz.com)"
+    ]
+  }
+}

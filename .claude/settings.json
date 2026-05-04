@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($ProgressPreference = 'SilentlyContinue'; \\(Invoke-WebRequest -Uri \"https://aymenpromotion-dz.com\" -UseBasicParsing\\).Content | Select-Object -First 5000)",
+      "PowerShell($ProgressPreference = 'SilentlyContinue'; \\(Invoke-WebRequest -Uri \"https://aymenpromotion-dz.com/static/css/main.afcc6c3e.css\" -UseBasicParsing\\).Content | Select-Object -First 10000)",
+      "PowerShell($ProgressPreference = 'SilentlyContinue'; \\(Invoke-WebRequest -Uri \"https://aymenpromotion-dz.com/static/css/main.afcc6c3e.css\" -UseBasicParsing\\).Content | Select-String -Pattern \"@keyframes|animation|transition|transform|@media|clip-path|perspective\" | Select-Object -First 100)",
+      "PowerShell($ProgressPreference = 'SilentlyContinue'; \\(Invoke-WebRequest -Uri \"https://aymenpromotion-dz.com/static/js/main.576cf2be.js\" -UseBasicParsing\\).Content.Length)",
+      "PowerShell($ProgressPreference = 'SilentlyContinue'; \\(Invoke-WebRequest -Uri \"https://aymenpromotion-dz.com/static/js/main.576cf2be.js\" -UseBasicParsing\\).Content | Select-String -Pattern \"gsap|ScrollReveal|AOS|animate|animation|keyframes|Intersection|scroll|parallax|ease|duration|delay|stagger\" | Select-Object -First 200)",
+      "Bash(python skills/ui-ux-pro-max/scripts/search.py \"construction luxury cinematic animation entrance scroll\" --design-system -p \"TRODI Construction\")"
+    ]
+  }
+}

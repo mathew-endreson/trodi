@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRODI Construction TC — Bâtir aujourd'hui. Valoriser demain.</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&family=Bebas+Neue&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="intro-lock">
+
+  <!-- ══ CINEMATIC INTRO ══ -->
+  <div id="ci">
+    <div class="ci-curtain-t"></div>
+    <div class="ci-curtain-b"></div>
+    <div class="ci-center">
+      <div class="ci-logo-mark">
+        <img src="logo.png" alt="TRODI Construction TC" class="ci-logo-img">
+      </div>
+      <div class="ci-rule"></div>
+      <div class="ci-subtitle">Construction TC &nbsp;·&nbsp; Algérie</div>
+    </div>
+  </div>
+
+  <!-- ══ SCROLL PROGRESS ══ -->
+  <div id="scroll-bar"></div>
+
+  <div class="cursor" id="cur"></div>
+  <div class="cursor-ring" id="curR"></div>
+
+  <!-- ══ NAV ══ -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">
+      <img src="logo.png" alt="TRODI Construction TC" class="nav-logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">Accueil</a></li>
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#investisseur">Investisseurs</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#investisseur" class="nav-inv">Espace Investisseur</a>
+    <button class="ham-btn" id="hamBtn" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ══ MOBILE NAV ══ -->
+  <div class="mob-overlay" id="mobOverlay"></div>
+  <div class="mob-nav" id="mobNav" role="navigation" aria-label="Menu mobile">
+    <div class="mob-nav-logo">TRODI<span>.</span></div>
+    <ul class="mob-nav-links">
+      <li><a href="#">Accueil</a></li>
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#investisseur">Investisseurs</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#investisseur" class="mob-nav-cta">Espace Investisseur</a>
+  </div>
+
+  <!-- ══ HERO ══ -->
+  <section id="hero">
+    <video class="hero-bg" autoplay muted loop playsinline preload="auto">
+      <source src="alger 12.mp4" type="video/mp4">
+    </video>
+    <div class="hero-gradient"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">INVESTISSEZ DANS L'IMMOBILIER D'EXCEPTION EN ALGÉRIE</div>
+      <h1 class="hero-h1">Bâtir aujourd'hui.<em>Valoriser demain.</em></h1>
+      <p class="hero-sub">TRODI Construction TC redéfinit l'immobilier premium en Algérie avec des projets stratégiques
+        à haute valeur ajoutée.</p>
+      <div class="hero-btns">
+        <a href="#projets" class="btn-gold"><span>Projets Immobiliers</span></a>
+        <a href="#investisseur" class="btn-outline">Espace Investisseur</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="s-item">
+        <div class="s-num" data-count="15" data-suffix="+">0</div>
+        <div class="s-lbl">Ans d'Expérience</div>
+      </div>
+      <div class="s-item">
+        <div class="s-num" data-count="25" data-suffix="+">0</div>
+        <div class="s-lbl">Projets Réalisés</div>
+      </div>
+      <div class="s-item">
+        <div class="s-num" data-count="98" data-suffix="%">0</div>
+        <div class="s-lbl">Satisfaction Client</div>
+      </div>
+    </div>
+    <div class="scroll-cue"><span>Défiler</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ══ TICKER ══ -->
+  <div class="ticker">
+    <div class="ticker-track">
+      <span>Architecture d'Avant-Garde</span><span class="sep">◆</span>
+      <span>Emplacements Stratégiques</span><span class="sep">◆</span>
+      <span>Exigence de Qualité</span><span class="sep">◆</span>
+      <span>Immobilier Premium</span><span class="sep">◆</span>
+      <span>Résidences de Luxe</span><span class="sep">◆</span>
+      <span>Algérie</span><span class="sep">◆</span>
+      <span>Architecture d'Avant-Garde</span><span class="sep">◆</span>
+      <span>Emplacements Stratégiques</span><span class="sep">◆</span>
+      <span>Exigence de Qualité</span><span class="sep">◆</span>
+      <span>Immobilier Premium</span><span class="sep">◆</span>
+      <span>Résidences de Luxe</span><span class="sep">◆</span>
+      <span>Algérie</span><span class="sep">◆</span>
+    </div>
+  </div>
+
+  <!-- ══ À PROPOS ══ -->
+  <section id="apropos">
+    <div class="ap-visual">
+      <div class="ap-img-main"></div>
+      <div class="ap-img-sec"></div>
+      <div class="ap-medal">
+        <div class="mn">15+</div>
+        <div class="ml">Ans<br>d'Excellence</div>
+      </div>
+    </div>
+    <div class="ap-content">
+      <div>
+        <div class="s-tag">À propos de TRODI</div>
+        <h2 class="s-title">Les Architectes de<br><em>Votre Exclusivité</em></h2>
+      </div>
+      <p class="s-body">Plus qu'un promoteur. Un créateur d'espaces de vie uniques.</p>
+      <div class="vm-grid">
+        <div class="vm-card">
+          <div class="vm-label">Notre Vision</div>
+          <p class="vm-text">Être la référence incontestée de la promotion immobilière de luxe et d'architecture
+            contemporaine en Algérie.</p>
+        </div>
+        <div class="vm-card">
+          <div class="vm-label">Notre Mission</div>
+          <p class="vm-text">Concevoir et réaliser des programmes immobiliers neufs en Algérie qui redéfinissent le haut
+            standing et l'excellence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══ SERVICES ══ -->
+  <section id="services">
+    <div class="srv-header">
+      <div>
+        <div class="s-tag">Nos Services</div>
+        <h2 class="s-title">L'alliance parfaite<br><em>entre Art &amp; Qualité</em></h2>
+      </div>
+      <p class="srv-intro">L'alliance parfaite entre une architecture moderne visionnaire, des matériaux nobles et un
+        art de vivre exclusif.</p>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-card">
+        <div class="srv-img"
+          style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80')"></div>
+        <div class="srv-over"></div>
+        <div class="srv-body">
+          <div class="srv-icon">
+            <svg width="20" height="20" fill="none" stroke="#B8963E" stroke-width="1.5" viewBox="0 0 24 24">
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+              <polyline points="9,22 9,12 15,12 15,22" />
+            </svg>
+          </div>
+          <div class="srv-name">Architecture<br>d'Avant-Garde</div>
+          <div class="srv-desc">Des lignes épurées, des volumes généreux et une lumière omniprésente.</div>
+        </div>
+      </div>
+      <div class="srv-card">
+        <div class="srv-img"
+          style="background-image:url('dd9815df-city-10465-164dc53b979.jpg')"></div>
+        <div class="srv-over"></div>
+        <div class="srv-body">
+          <div class="srv-icon">
+            <svg width="20" height="20" fill="none" stroke="#B8963E" stroke-width="1.5" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+            </svg>
+          </div>
+          <div class="srv-name">Exigence<br>de Qualité</div>
+          <div class="srv-desc">Une sélection rigoureuse des matériaux et un souci du détail obsessionnel.</div>
+        </div>
+      </div>
+      <div class="srv-card">
+        <div class="srv-img"
+          style="background-image:url('Generated%20Image%20May%2003%2C%202026%20-%207_51PM.jpg')"></div>
+        <div class="srv-over"></div>
+        <div class="srv-body">
+          <div class="srv-icon">
+            <svg width="20" height="20" fill="none" stroke="#B8963E" stroke-width="1.5" viewBox="0 0 24 24">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+          </div>
+          <div class="srv-name">Emplacements<br>Stratégiques</div>
+          <div class="srv-desc">Des adresses prestigieuses pour un quotidien privilégié.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROJETS ══ -->
+  <section id="projets">
+    <div class="proj-header">
+      <div>
+        <div class="s-tag">Nos Projets</div>
+        <h2 class="s-title">Devenez propriétaire<br><em>de l'exceptionnel</em></h2>
+      </div>
+      <p class="s-body" style="margin-top:20px">Notre sélection de résidences prestigieuses destinées à une clientèle
+        d'exception.</p>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-bg"
+          style="background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=900&q=80')"></div>
+        <div class="proj-over"></div>
+        <div class="proj-info">
+          <div class="proj-loc">Alger — Résidences de Luxe</div>
+          <div class="proj-name">Résidence Azurea</div>
+          <div class="proj-sub">Vue mer &amp; équipements premium</div>
+          <button class="proj-cta" data-project="azurea">Découvrir</button>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-bg"
+          style="background-image:url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80')"></div>
+        <div class="proj-over"></div>
+        <div class="proj-info">
+          <div class="proj-loc">Djelfa — Appartements Premium</div>
+          <div class="proj-name">Skyview Garden</div>
+          <div class="proj-sub">Piscine &amp; jardins suspendus</div>
+          <button class="proj-cta" data-project="skyview">Découvrir</button>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-bg"
+          style="background-image:url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80')"></div>
+        <div class="proj-over"></div>
+        <div class="proj-info">
+          <div class="proj-loc">Sétif — Villas Résidentielles</div>
+          <div class="proj-name">Palm Riviera</div>
+          <div class="proj-sub">Mini-villas élégantes avec accès exclusif</div>
+          <button class="proj-cta" data-project="palmriviera">Découvrir</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PARALLAX CTA ══ -->
+  <div class="pb-band" id="pbBand">
+    <div class="pb-bg" id="pbBg"></div>
+    <div class="pb-content">
+      <h2 class="pb-title">Prêt à Vivre<br><em>l'Expérience TRODI ?</em></h2>
+      <a href="#contact" class="btn-gold"><span>Demander une Consultation</span></a>
+    </div>
+  </div>
+
+  <!-- ══ ACCOMPAGNEMENT ══ -->
+  <section id="accompagnement">
+    <div>
+      <div class="s-tag">Accompagnement</div>
+      <h2 class="s-title">Accompagnement sur Mesure<br><em>pour un Projet Serein</em></h2>
+    </div>
+    <p class="s-body" style="margin-top:20px">Acquérir un bien d'exception est une étape importante. Notre équipe vous
+      accompagne à chaque instant.</p>
+    <div class="acc-layout">
+      <div class="acc-cards">
+        <div class="acc-card">
+          <div class="acc-num">01</div>
+          <div class="acc-name">Conseil en Investissement</div>
+          <div class="acc-desc">Analyse de vos besoins, de la résidence principale à l'investissement locatif de
+            prestige.</div>
+        </div>
+        <div class="acc-card">
+          <div class="acc-num">02</div>
+          <div class="acc-name">Personnalisation des Plans</div>
+          <div class="acc-desc">Selon l'avancement du projet, nous offrons des services d'aménagement et de
+            personnalisation de vos espaces.</div>
+        </div>
+        <div class="acc-card">
+          <div class="acc-num">03</div>
+          <div class="acc-name">Accompagnement Financier</div>
+          <div class="acc-desc">Orientation vers nos partenaires bancaires pour des solutions de financement adaptées.
+          </div>
+        </div>
+      </div>
+      <div class="acc-visual">
+        <div class="acc-img"></div>
+        <div class="acc-quote">
+          <p>L'excellence ne se décrète pas, elle se construit — pierre après pierre, détail après détail.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══ ESPACE INVESTISSEUR ══ -->
+  <section id="investisseur">
+    <div class="inv-left">
+      <div>
+        <div class="s-tag">Espace Investisseur</div>
+        <h2 class="s-title">Performance &amp;<br><em>Sécurisation des Actifs</em></h2>
+      </div>
+      <p class="s-body">Accédez à votre espace investisseur sécurisé.</p>
+      <div class="inv-badge">
+        <div class="inv-dot"></div><span>Connexion Sécurisée</span>
+      </div>
+      <div class="inv-perks">
+        <div class="inv-perk">Suivi en temps réel de vos projets</div>
+        <div class="inv-perk">Documents contractuels &amp; juridiques</div>
+        <div class="inv-perk">Rapports d'avancement exclusifs</div>
+        <div class="inv-perk">Rendements &amp; valorisation des actifs</div>
+        <div class="inv-perk">Interface chiffrée niveau bancaire</div>
+      </div>
+    </div>
+    <div class="inv-box">
+      <div class="inv-box-title">Connexion Sécurisée</div>
+      <div class="inv-box-sub">Espace Investisseur Privé</div>
+      <div class="form-fld">
+        <label class="form-lbl">Email</label>
+        <input type="email" class="form-inp" placeholder="investisseur@exemple.dz">
+      </div>
+      <div class="form-fld">
+        <label class="form-lbl">Mot de passe</label>
+        <input type="password" class="form-inp" placeholder="••••••••••••">
+      </div>
+      <button class="f-submit"><span>Connexion Sécurisée</span></button>
+      <div class="form-sec" style="margin-top:20px">
+        <span style="color:var(--gold);font-size:15px">🔒</span>
+        <span>Vos données sont protégées par un chiffrement de niveau bancaire</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTACT ══ -->
+  <section id="contact">
+    <div class="contact-left">
+      <div>
+        <div class="s-tag">Contactez-Nous</div>
+        <h2 class="s-title">Notre équipe<br><em>à votre disposition</em></h2>
+      </div>
+      <p class="s-body">Notre équipe d'experts est à votre disposition pour répondre à toutes vos questions.</p>
+      <div class="c-info">
+        <div class="c-row">
+          <div class="c-icon"><svg width="17" height="17" fill="none" stroke="#B8963E" stroke-width="1.5"
+              viewBox="0 0 24 24">
+              <path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg></div>
+          <div>
+            <div class="c-lbl">Siège Social</div>
+            <div class="c-val">Avenue des Martyrs, Alger — Algérie</div>
+          </div>
+        </div>
+        <div class="c-row">
+          <div class="c-icon"><svg width="17" height="17" fill="none" stroke="#B8963E" stroke-width="1.5"
+              viewBox="0 0 24 24">
+              <path
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg></div>
+          <div>
+            <div class="c-lbl">Téléphone</div>
+            <div class="c-val">
+              <a href="tel:+213440955540">+213 (0) 4 40 95 54 0</a>
+              <a href="tel:+213550994033">+213 (0) 550 99 40 33</a>
+            </div>
+          </div>
+        </div>
+        <div class="c-row">
+          <div class="c-icon"><svg width="17" height="17" fill="none" stroke="#B8963E" stroke-width="1.5"
+              viewBox="0 0 24 24">
+              <path
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg></div>
+          <div>
+            <div class="c-lbl">Email</div>
+            <div class="c-val">
+              <a href="mailto:contact@troditc.dz">contact@troditc.dz</a>
+              <a href="mailto:investisseurs@troditc.dz">investisseurs@troditc.dz</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="cf-title">Envoyez-nous un message</div>
+      <div class="cf-row">
+        <div class="form-fld"><label class="form-lbl">Nom complet</label><input type="text" class="form-inp"
+            placeholder="Votre nom"></div>
+        <div class="form-fld"><label class="form-lbl">Email</label><input type="email" class="form-inp"
+            placeholder="votre@email.dz"></div>
+      </div>
+      <div class="form-fld"><label class="form-lbl">Téléphone</label><input type="tel" class="form-inp"
+          placeholder="+213 …"></div>
+      <div class="form-fld"><label class="form-lbl">Message</label><textarea class="form-inp form-ta" rows="5"
+          placeholder="Votre message…"></textarea></div>
+      <button class="cf-submit"><span>Envoyer le message →</span></button>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <span class="footer-logo-big">TRODI<span>.</span></span>
+        <div class="footer-tagline">Bâtir aujourd'hui. Valoriser demain.</div>
+        <div class="footer-engagement">Le slogan de notre engagement envers vous</div>
+      </div>
+      <div style="text-align:right;align-self:flex-end">
+        <div class="footer-nat" style="margin-bottom:8px">Groupe Immobilier National Algérien</div>
+        <div class="footer-copy">© 2026 TRODI Construction TC. Tous droits réservés.</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 TRODI Construction TC. Tous droits réservés.</div>
+      <div class="footer-nat">Groupe Immobilier National Algérien</div>
+    </div>
+  </footer>
+
+  <!-- ══ PROJECT MODAL ══ -->
+  <div id="proj-modal" class="pmo" role="dialog" aria-modal="true" aria-label="Détails du projet" aria-hidden="true">
+    <div class="pmo-card">
+      <div class="pmo-hero">
+        <img class="pmo-hero-img" src="" alt="" loading="lazy">
+        <div class="pmo-hero-grad"></div>
+        <div class="pmo-hero-text">
+          <div class="pmo-hero-loc"></div>
+          <div class="pmo-hero-title"></div>
+        </div>
+        <button class="pmo-close" aria-label="Fermer">&#x2715;</button>
+      </div>
+      <div class="pmo-body">
+        <p class="pmo-desc"></p>
+        <div class="pmo-details"></div>
+        <div>
+          <div class="pmo-feat-title">Caractéristiques</div>
+          <ul class="pmo-feat-list"></ul>
+        </div>
+        <div class="pmo-timeline"></div>
+      </div>
+      <div class="pmo-footer">
+        <button class="pmo-btn-close">Fermer</button>
+        <button class="pmo-btn-brochure">Demander une brochure</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts loaded last so DOM is ready when stat.js runs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="stat.js"></script>
+</body>
+
+</html>
