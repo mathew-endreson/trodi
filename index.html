@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TRODI Construction TC — Investissez dans l'immobilier d'exception en Algérie</title>
   <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preload" as="image" href="assets/hero-bay.webp">
+  <link rel="preload" as="font" type="font/woff2"
+    href="https://fonts.gstatic.com/s/cormorantgaramond/v18/co3bmX5slCNuHLi8bLeY9MK7whWMhyjornlYsg.woff2" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -14,20 +17,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="intro-lock">
-
-  <!-- ══ CINEMATIC INTRO ══ -->
-  <div id="ci">
-    <div class="ci-curtain-t"></div>
-    <div class="ci-curtain-b"></div>
-    <div class="ci-center">
-      <div class="ci-logo-mark">
-        <img src="logo.png" alt="TRODI Construction TC" class="ci-logo-img">
-      </div>
-      <div class="ci-rule"></div>
-      <div class="ci-subtitle">Construction TC &nbsp;·&nbsp; Algérie</div>
-    </div>
-  </div>
+<body>
 
   <!-- ══ SCROLL PROGRESS ══ -->
   <div id="scroll-bar"></div>
@@ -38,7 +28,7 @@
   <!-- ══ NAV ══ -->
   <nav id="nav">
     <a href="#" class="nav-logo">
-      <img src="logo.png" alt="TRODI Construction TC" class="nav-logo-img">
+      <img src="nabbr%20logo.png" alt="TRODI realestate company" class="nav-logo-img">
     </a>
     <ul class="nav-links">
       <li><a href="#">Accueil</a></li>
@@ -78,9 +68,7 @@
 
   <!-- ══ HERO ══ -->
   <section id="hero">
-    <div class="hero-bg"
-      style="background-image:url('Trodi%20real%20estate/ChatGPT%20Image%2014%20fe%CC%81vr.%202026%20a%CC%80%2016_16_56.png')">
-    </div>
+    <div class="hero-bg" data-img="assets/hero-bay.webp"></div>
     <div class="hero-gradient"></div>
     <div class="hero-content">
       <div class="hero-eyebrow"><span class="dot"></span>Promoteur immobilier · Algérie</div>
@@ -107,8 +95,22 @@
     </div>
   </section>
 
+  <!-- ══ MARQUEE STRIP ══ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Alger</span><i>◆</i><span>Architecture contemporaine</span><i>◆</i>
+      <span>Investissement premium</span><i>◆</i><span>Sétif</span><i>◆</i>
+      <span>Gestion locative clé en main</span><i>◆</i><span>Djelfa</span><i>◆</i>
+      <span>Standards internationaux</span><i>◆</i><span>Diaspora bienvenue</span><i>◆</i>
+      <span>Alger</span><i>◆</i><span>Architecture contemporaine</span><i>◆</i>
+      <span>Investissement premium</span><i>◆</i><span>Sétif</span><i>◆</i>
+      <span>Gestion locative clé en main</span><i>◆</i><span>Djelfa</span><i>◆</i>
+      <span>Standards internationaux</span><i>◆</i><span>Diaspora bienvenue</span><i>◆</i>
+    </div>
+  </div>
+
   <!-- ══ APROPOS — strip ══ -->
-  <section id="apropos" class="apropos-strip">
+  <section id="apropos" class="apropos-strip stack-section">
     <div class="ap-left">
       <div class="s-eyebrow">[ À propos ]</div>
       <h2 class="s-title">Bâtir aujourd'hui.<br><em>Valoriser demain.</em></h2>
@@ -164,218 +166,95 @@
     </div>
   </section>
 
-  <!-- ══ MARKET DATA — comparative bars ══ -->
-  <section id="market">
-    <div class="sec-header">
-      <div class="s-eyebrow">[ Données de marché ]</div>
-      <h2 class="s-title">Un marché immobilier<br><em>en croissance</em></h2>
-      <p class="sec-lead">Évolution de la demande immobilière premium par wilaya entre 2022 et 2025
-        (source : indicateurs internes TRODI).</p>
-    </div>
-    <div class="market-grid">
-      <div class="market-cities">
-        <div class="city-row featured">
-          <div class="city-name">Alger</div>
-          <div class="city-bar"><span style="--w:92%"></span></div>
-          <div class="city-pct">+42%</div>
-        </div>
-        <div class="city-row">
-          <div class="city-name">Sétif</div>
-          <div class="city-bar"><span style="--w:74%"></span></div>
-          <div class="city-pct">+31%</div>
-        </div>
-        <div class="city-row">
-          <div class="city-name">Djelfa</div>
-          <div class="city-bar"><span style="--w:65%"></span></div>
-          <div class="city-pct">+26%</div>
-        </div>
-        <div class="city-row">
-          <div class="city-name">Oran</div>
-          <div class="city-bar"><span style="--w:58%"></span></div>
-          <div class="city-pct">+22%</div>
-        </div>
-        <div class="city-row">
-          <div class="city-name">Constantine</div>
-          <div class="city-bar"><span style="--w:46%"></span></div>
-          <div class="city-pct">+18%</div>
-        </div>
-      </div>
-      <aside class="market-side">
-        <div class="market-stat">
-          <div class="ms-num" data-count="42" data-suffix="%">0</div>
-          <div class="ms-lbl">Hausse de la demande à Alger</div>
-        </div>
-        <div class="market-stat">
-          <div class="ms-num" data-count="3" data-suffix="x">0</div>
-          <div class="ms-lbl">Pénurie de logements premium</div>
-        </div>
-        <div class="market-stat">
-          <div class="ms-num" data-count="6" data-suffix="%">0</div>
-          <div class="ms-lbl">Rendement locatif moyen</div>
-        </div>
-      </aside>
-    </div>
-  </section>
 
-  <!-- ══ PROJETS ══ -->
-  <section id="projets">
+  <!-- ══ PROJETS — intro ══ -->
+  <section id="projets" class="projets-intro">
     <div class="sec-header">
       <div class="s-eyebrow">[ Nos projets ]</div>
       <h2 class="s-title">Devenez propriétaire<br><em>de l'exceptionnel</em></h2>
       <p class="sec-lead">Une sélection de résidences prestigieuses destinées à une clientèle d'exception.</p>
     </div>
-    <div class="proj-grid">
-
-      <article class="proj-card" data-project="azurea">
-        <div class="proj-img"
-          style="background-image:url('Trodi%20real%20estate/re%CC%81sidance%20azurea/ChatGPT%20Image%2012%20mai%202026%20a%CC%80%2014_06_03.png')">
-        </div>
-        <div class="proj-badges">
-          <span class="proj-badge available">Disponible</span>
-          <span class="proj-badge type">Appartements</span>
-        </div>
-        <div class="proj-body">
-          <div class="proj-loc">Alger · Résidences de luxe</div>
-          <h3 class="proj-name">Résidence Azurea</h3>
-          <p class="proj-desc">Vue mer panoramique, plage privée, équipements 5 étoiles au cœur de la baie d'Alger.</p>
-          <dl class="proj-meta">
-            <div><dt>Unités</dt><dd>120</dd></div>
-            <div><dt>Livraison</dt><dd>Juin 2026</dd></div>
-            <div><dt>À partir de</dt><dd>45M DA</dd></div>
-          </dl>
-          <button class="proj-cta" data-project="azurea">Découvrir le projet
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="proj-card" data-project="skyview">
-        <div class="proj-img"
-          style="background-image:url('Trodi%20real%20estate/re%CC%81sidance%20djelfa/001.jpg')">
-        </div>
-        <div class="proj-badges">
-          <span class="proj-badge final">Derniers lots</span>
-          <span class="proj-badge type">Appartements</span>
-        </div>
-        <div class="proj-body">
-          <div class="proj-loc">Djelfa · Appartements premium</div>
-          <h3 class="proj-name">Skyview Garden</h3>
-          <p class="proj-desc">Jardins suspendus, piscine panoramique en toiture, espaces verts aménagés.</p>
-          <dl class="proj-meta">
-            <div><dt>Unités</dt><dd>84</dd></div>
-            <div><dt>Livraison</dt><dd>Déc. 2026</dd></div>
-            <div><dt>À partir de</dt><dd>28M DA</dd></div>
-          </dl>
-          <button class="proj-cta" data-project="skyview">Découvrir le projet
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-      </article>
-
-      <article class="proj-card" data-project="palmriviera">
-        <div class="proj-img"
-          style="background-image:url('Trodi%20real%20estate/ChatGPT%20Image%2014%20fe%CC%81vr.%202026%20a%CC%80%2016_20_07.png')">
-        </div>
-        <div class="proj-badges">
-          <span class="proj-badge soon">Bientôt</span>
-          <span class="proj-badge type">Villas</span>
-        </div>
-        <div class="proj-body">
-          <div class="proj-loc">Sétif · Villas résidentielles</div>
-          <h3 class="proj-name">Palm Riviera</h3>
-          <p class="proj-desc">Collection exclusive de villas avec jardin privatif et accès club-house.</p>
-          <dl class="proj-meta">
-            <div><dt>Villas</dt><dd>48</dd></div>
-            <div><dt>Livraison</dt><dd>Mars 2027</dd></div>
-            <div><dt>À partir de</dt><dd>62M DA</dd></div>
-          </dl>
-          <button class="proj-cta" data-project="palmriviera">Découvrir le projet
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-      </article>
-
-    </div>
   </section>
 
-  <!-- ══ LIFESTYLE GALLERY — numbered carousel ══ -->
-  <section id="lifestyle">
-    <div class="sec-header">
-      <div class="s-eyebrow">[ Art de vivre ]</div>
-      <h2 class="s-title">L'expérience TRODI,<br><em>en images</em></h2>
-      <p class="sec-lead">Une parenthèse visuelle au cœur de nos résidences — finitions, espaces communs, vues.</p>
-    </div>
-    <div class="ls-carousel">
-      <div class="ls-track" id="lsTrack">
-        <figure class="ls-slide"
-          style="background-image:url('Trodi%20real%20estate/re%CC%81sidance%20azurea/ChatGPT%20Image%2010%20mai%202026%20a%CC%80%2020_54_05.png')">
-          <figcaption>Hall d'accueil — Azurea</figcaption>
-        </figure>
-        <figure class="ls-slide"
-          style="background-image:url('Trodi%20real%20estate/re%CC%81sidance%20azurea/ChatGPT%20Image%2010%20mai%202026%20a%CC%80%2020_54_07.png')">
-          <figcaption>Vue façade — Azurea</figcaption>
-        </figure>
-        <figure class="ls-slide"
-          style="background-image:url('Trodi%20real%20estate/re%CC%81sidance%20azurea/ChatGPT%20Image%204%20mai%202026%20a%CC%80%2023_54_05.png')">
-          <figcaption>Salon d'apparat — Azurea</figcaption>
-        </figure>
-        <figure class="ls-slide"
-          style="background-image:url('Trodi%20real%20estate/re%CC%81sidance%20azurea/ChatGPT%20Image%204%20mai%202026%20a%CC%80%2023_58_28.png')">
-          <figcaption>Suite parentale — Azurea</figcaption>
-        </figure>
-        <figure class="ls-slide"
-          style="background-image:url('Trodi%20real%20estate/re%CC%81sidance%20azurea/ChatGPT%20Image%205%20mai%202026%20a%CC%80%2000_09_00.png')">
-          <figcaption>Espace bien-être — Azurea</figcaption>
-        </figure>
-        <figure class="ls-slide"
-          style="background-image:url('Trodi%20real%20estate/re%CC%81sidance%20djelfa/002.jpg')">
-          <figcaption>Vue extérieure — Skyview Garden</figcaption>
-        </figure>
-        <figure class="ls-slide"
-          style="background-image:url('Trodi%20real%20estate/re%CC%81sidance%20djelfa/003.jpg')">
-          <figcaption>Architecture contemporaine — Djelfa</figcaption>
-        </figure>
-        <figure class="ls-slide"
-          style="background-image:url('Trodi%20real%20estate/re%CC%81sidance%20djelfa/005.jpg')">
-          <figcaption>Patio intérieur — Skyview Garden</figcaption>
-        </figure>
-        <figure class="ls-slide"
-          style="background-image:url('Trodi%20real%20estate/re%CC%81sidance%20djelfa/008.jpg')">
-          <figcaption>Hall principal — Djelfa</figcaption>
-        </figure>
-        <figure class="ls-slide"
-          style="background-image:url('Trodi%20real%20estate/re%CC%81sidance%20djelfa/012.jpg')">
-          <figcaption>Espaces communs — Djelfa</figcaption>
-        </figure>
-        <figure class="ls-slide"
-          style="background-image:url('Trodi%20real%20estate/re%CC%81sidance%20djelfa/018.jpg')">
-          <figcaption>Détails finitions — Djelfa</figcaption>
-        </figure>
-        <figure class="ls-slide"
-          style="background-image:url('Trodi%20real%20estate/re%CC%81sidance%20djelfa/025.jpg')">
-          <figcaption>Aménagements paysagers — Djelfa</figcaption>
-        </figure>
-      </div>
-      <div class="ls-controls">
-        <button class="ls-arrow" id="lsPrev" aria-label="Précédent">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M19 12H5M12 19l-7-7 7-7" />
+  <!-- ══ PROJECT — Azurea ══ -->
+  <section id="azurea" class="proj-section">
+    <a href="azurea.html" class="proj-banner" data-img="Trodi%20real%20estate/re%CC%81sidance%20azurea%20(Alger)/photo_5800996848657960681_y.jpg">
+      <div class="proj-banner-img"></div>
+      <div class="proj-banner-overlay"></div>
+      <div class="proj-banner-content">
+        <div class="proj-banner-tags">
+          <span class="proj-badge soon">Coming soon</span>
+          <span class="proj-badge type">Appartements</span>
+        </div>
+        <div class="proj-banner-loc">Alger · Résidences de luxe</div>
+        <h3 class="proj-banner-name">Résidence Azurea</h3>
+        <p class="proj-banner-desc">Vue mer panoramique, plage privée, équipements 5 étoiles au cœur de la baie d'Alger.</p>
+        <dl class="proj-banner-meta">
+          <div><dt>Unités</dt><dd>120</dd></div>
+          <div><dt>Livraison</dt><dd>Juin 2026</dd></div>
+          <div><dt>À partir de</dt><dd>45M DA</dd></div>
+        </dl>
+        <span class="proj-banner-cta">Découvrir le projet
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M13 5l7 7-7 7" />
           </svg>
-        </button>
-        <div class="ls-counter"><span id="lsIdx">01</span><span class="ls-sep">/</span><span id="lsTot">12</span></div>
-        <button class="ls-arrow" id="lsNext" aria-label="Suivant">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </button>
+        </span>
       </div>
-    </div>
+    </a>
+  </section>
+
+  <!-- ══ PROJECT — Atlas Garden ══ -->
+  <section id="atlas" class="proj-section">
+    <a href="atlas.html" class="proj-banner" data-img="Trodi%20real%20estate/Atlas%20Garden%20(%20Djelfa)/001.jpg">
+      <div class="proj-banner-img"></div>
+      <div class="proj-banner-overlay"></div>
+      <div class="proj-banner-content">
+        <div class="proj-banner-tags">
+          <span class="proj-badge final">Derniers lots</span>
+          <span class="proj-badge type">Villas</span>
+        </div>
+        <div class="proj-banner-loc">Djelfa · Villas premium</div>
+        <h3 class="proj-banner-name">Atlas Garden</h3>
+        <p class="proj-banner-desc">Villas contemporaines avec jardin privatif, finitions haut de gamme et domaine sécurisé au cœur de Djelfa.</p>
+        <dl class="proj-banner-meta">
+          <div><dt>Villas</dt><dd>32</dd></div>
+          <div><dt>Livraison</dt><dd>Déc. 2026</dd></div>
+          <div><dt>À partir de</dt><dd>38M DA</dd></div>
+        </dl>
+        <span class="proj-banner-cta">Découvrir le projet
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg>
+        </span>
+      </div>
+    </a>
+  </section>
+
+  <!-- ══ PROJECT — Palméria ══ -->
+  <section id="palmeria" class="proj-section">
+    <a href="palmeria.html" class="proj-banner" data-img="Trodi%20real%20estate/Palm%C3%A9ria%20(S%C3%A9tif)/001.jpg">
+      <div class="proj-banner-img"></div>
+      <div class="proj-banner-overlay"></div>
+      <div class="proj-banner-content">
+        <div class="proj-banner-tags">
+          <span class="proj-badge soon">Bientôt</span>
+          <span class="proj-badge type">Résidence</span>
+        </div>
+        <div class="proj-banner-loc">Sétif · Résidence premium</div>
+        <h3 class="proj-banner-name">Palméria</h3>
+        <p class="proj-banner-desc">Appartements haut de gamme dans un cadre résidentiel verdoyant, alliant confort moderne et art de vivre méditerranéen.</p>
+        <dl class="proj-banner-meta">
+          <div><dt>Unités</dt><dd>96</dd></div>
+          <div><dt>Livraison</dt><dd>Mars 2027</dd></div>
+          <div><dt>À partir de</dt><dd>32M DA</dd></div>
+        </dl>
+        <span class="proj-banner-cta">Découvrir le projet
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg>
+        </span>
+      </div>
+    </a>
   </section>
 
   <!-- ══ SUPPORT — services around investor ══ -->
@@ -427,11 +306,9 @@
   </section>
 
   <!-- ══ FOUNDER QUOTE ══ -->
-  <section id="founder">
+  <section id="founder" class="stack-section">
     <div class="founder-card">
-      <div class="founder-visual"
-        style="background-image:url('Trodi%20real%20estate/ChatGPT%20Image%2014%20fe%CC%81vr.%202026%20a%CC%80%2016_20_09.png')">
-      </div>
+      <div class="founder-visual" data-img="assets/founder.webp"></div>
       <div class="founder-body">
         <div class="s-eyebrow">[ Le mot de la direction ]</div>
         <blockquote class="founder-quote">
@@ -446,45 +323,8 @@
     </div>
   </section>
 
-  <!-- ══ TESTIMONIALS ══ -->
-  <section id="testimonials">
-    <div class="sec-header">
-      <div class="s-eyebrow">[ Ils nous font confiance ]</div>
-      <h2 class="s-title">La parole<br><em>à nos clients</em></h2>
-    </div>
-    <div class="test-grid">
-      <article class="test-card">
-        <div class="test-stars">★★★★★</div>
-        <p class="test-body">« Un accompagnement irréprochable du premier rendez-vous à la remise des clés.
-          L'équipe TRODI a su anticiper toutes mes questions. »</p>
-        <div class="test-meta">
-          <div class="test-name">Karim B.</div>
-          <div class="test-role">Investisseur — Azurea</div>
-        </div>
-      </article>
-      <article class="test-card">
-        <div class="test-stars">★★★★★</div>
-        <p class="test-body">« Qualité de construction et finitions au rendez-vous. Les délais ont été
-          parfaitement respectés, ce qui est rare dans le secteur. »</p>
-        <div class="test-meta">
-          <div class="test-name">Yacine M.</div>
-          <div class="test-role">Propriétaire — Skyview Garden</div>
-        </div>
-      </article>
-      <article class="test-card">
-        <div class="test-stars">★★★★★</div>
-        <p class="test-body">« Depuis la diaspora, j'ai apprécié la transparence : rapports d'avancement
-          réguliers, photos, échanges fluides. Confiance totale. »</p>
-        <div class="test-meta">
-          <div class="test-name">Sofiane L.</div>
-          <div class="test-role">Investisseur diaspora — Paris</div>
-        </div>
-      </article>
-    </div>
-  </section>
-
   <!-- ══ FAQ ══ -->
-  <section id="faq">
+  <section id="faq" class="stack-section">
     <div class="sec-header">
       <div class="s-eyebrow">[ FAQ ]</div>
       <h2 class="s-title">Vos questions,<br><em>nos réponses</em></h2>
@@ -547,7 +387,7 @@
   </section>
 
   <!-- ══ ESPACE INVESTISSEUR ══ -->
-  <section id="investisseur">
+  <section id="investisseur" class="stack-section">
     <div class="inv-left">
       <div class="s-eyebrow">[ Espace investisseur ]</div>
       <h2 class="s-title">Performance &amp;<br><em>sécurisation des actifs</em></h2>
@@ -649,8 +489,8 @@
         <select class="form-inp">
           <option>Tous projets</option>
           <option>Résidence Azurea — Alger</option>
-          <option>Skyview Garden — Djelfa</option>
-          <option>Palm Riviera — Sétif</option>
+          <option>Atlas Garden — Djelfa</option>
+          <option>Palméria — Sétif</option>
         </select>
       </div>
       <div class="form-fld"><label class="form-lbl">Message</label><textarea class="form-inp form-ta" rows="4"
@@ -667,7 +507,7 @@
   <footer>
     <div class="footer-top">
       <div class="foot-brand">
-        <img src="logo.png" alt="TRODI" class="foot-logo">
+        <img src="assets/logo.webp" alt="TRODI" class="foot-logo" loading="lazy">
         <p class="foot-mission">Bâtir aujourd'hui. Valoriser demain.<br>Promoteur immobilier premium en Algérie.</p>
         <div class="foot-social">
           <a href="#" aria-label="Instagram">IG</a>
@@ -678,9 +518,9 @@
       </div>
       <div class="foot-col">
         <h4>Projets</h4>
-        <a href="#projets">Résidence Azurea</a>
-        <a href="#projets">Skyview Garden</a>
-        <a href="#projets">Palm Riviera</a>
+        <a href="azurea.html">Résidence Azurea</a>
+        <a href="atlas.html">Atlas Garden</a>
+        <a href="palmeria.html">Palméria</a>
         <a href="#projets">Tous les projets</a>
       </div>
       <div class="foot-col">
@@ -699,38 +539,10 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copy">© 2026 TRODI Construction TC. Tous droits réservés.</div>
+      <div class="footer-copy">© 2026 TRODI realestate company. Tous droits réservés.</div>
       <div class="footer-nat">Groupe immobilier national algérien</div>
     </div>
   </footer>
-
-  <!-- ══ PROJECT MODAL ══ -->
-  <div id="proj-modal" class="pmo" role="dialog" aria-modal="true" aria-label="Détails du projet" aria-hidden="true">
-    <div class="pmo-card">
-      <div class="pmo-hero">
-        <img class="pmo-hero-img" src="" alt="" loading="lazy">
-        <div class="pmo-hero-grad"></div>
-        <div class="pmo-hero-text">
-          <div class="pmo-hero-loc"></div>
-          <div class="pmo-hero-title"></div>
-        </div>
-        <button class="pmo-close" aria-label="Fermer">&#x2715;</button>
-      </div>
-      <div class="pmo-body">
-        <p class="pmo-desc"></p>
-        <div class="pmo-details"></div>
-        <div>
-          <div class="pmo-feat-title">Caractéristiques</div>
-          <ul class="pmo-feat-list"></ul>
-        </div>
-        <div class="pmo-timeline"></div>
-      </div>
-      <div class="pmo-footer">
-        <button class="pmo-btn-close">Fermer</button>
-        <button class="pmo-btn-brochure">Demander une brochure</button>
-      </div>
-    </div>
-  </div>
 
   <!-- ══ APPOINTMENT MODAL ══ -->
   <div id="appt-modal" class="amo" role="dialog" aria-modal="true" aria-label="Prendre rendez-vous" aria-hidden="true">
@@ -761,8 +573,7 @@
     </div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
   <script src="stat.js"></script>
 </body>
 
