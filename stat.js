@@ -1,7 +1,7 @@
 gsap.registerPlugin(ScrollTrigger);
 
 /* ══════════════════════════════════════
-   CINEMATIC INTRO  (3 s total)
+   CINEMATIC INTRO  (≈3 s total)
 ══════════════════════════════════════ */
 const introTl = gsap.timeline({
   onComplete() {
@@ -17,7 +17,7 @@ introTl
   .to('.ci-subtitle',  { opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' }, 0.85)
   .to('.ci-center',    { opacity: 0, duration: 0.28, ease: 'power2.in' }, 1.72)
   .to('.ci-curtain-t', { yPercent: -100, duration: 0.85, ease: 'power4.inOut' }, 1.88)
-  .to('.ci-curtain-b', { yPercent: 100,  duration: 0.85, ease: 'power4.inOut' }, 1.88);
+  .to('.ci-curtain-b', { yPercent:  100, duration: 0.85, ease: 'power4.inOut' }, 1.88);
 
 /* ══════════════════════════════════════
    CURSOR
@@ -37,49 +37,61 @@ document.addEventListener('mousemove', e => {
   requestAnimationFrame(loop);
 })();
 
-document.querySelectorAll('a,button,.proj-card,.srv-card,.acc-card,.vm-card').forEach(el => {
-  el.addEventListener('mouseenter', () => { cur.classList.add('big'); curR.classList.add('big'); });
-  el.addEventListener('mouseleave', () => { cur.classList.remove('big'); curR.classList.remove('big'); });
-});
+document.querySelectorAll('a,button,.proj-card,.srv-card,.why-card,.test-card,.faq-item summary,.market-stat,.ls-slide')
+  .forEach(el => {
+    el.addEventListener('mouseenter', () => { cur.classList.add('big'); curR.classList.add('big'); });
+    el.addEventListener('mouseleave', () => { cur.classList.remove('big'); curR.classList.remove('big'); });
+  });
 
 /* ══════════════════════════════════════
-   NAVBAR
+   NAVBAR + SCROLL BAR
 ══════════════════════════════════════ */
-const navbar = document.getElementById('nav');
-window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', scrollY > 60));
-
-/* ══════════════════════════════════════
-   SCROLL PROGRESS BAR
-══════════════════════════════════════ */
+const navbar   = document.getElementById('nav');
 const scrollBar = document.getElementById('scroll-bar');
+
 window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', scrollY > 60);
   const pct = scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
   scrollBar.style.width = pct + '%';
 });
 
 /* ══════════════════════════════════════
-   COUNTER (hero stats)
+   COUNTER (market stats)
 ══════════════════════════════════════ */
 function countUp(el, target, suffix) {
   let c = 0;
-  const step = target / 70;
+  const step = Math.max(target / 70, 0.05);
   const t = setInterval(() => {
     c += step;
     if (c >= target) { c = target; clearInterval(t); }
-    el.textContent = Math.floor(c) + (suffix || '+');
+    el.textContent = (target % 1 === 0 ? Math.floor(c) : c.toFixed(1)) + (suffix || '');
   }, 22);
 }
 
-const hs = document.querySelector('.hero-stats');
-if (hs) {
+document.querySelectorAll('[data-count]').forEach(el => {
   new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if (e.isIntersecting)
-        document.querySelectorAll('[data-count]').forEach(el =>
-          countUp(el, +el.dataset.count, el.dataset.suffix || '+'));
+      if (e.isIntersecting) {
+        countUp(el, +el.dataset.count, el.dataset.suffix || '');
+        observerCleanup(e.target);
+      }
     });
-  }, { threshold: .5 }).observe(hs);
-}
+  }, { threshold: .5 }).observe(el);
+});
+function observerCleanup() {/* placeholder for tree-shake */}
+
+/* market bars animate */
+ScrollTrigger.create({
+  trigger: '.market-cities',
+  start: 'top 80%',
+  once: true,
+  onEnter() {
+    document.querySelectorAll('.city-bar span').forEach((bar, i) => {
+      const target = bar.style.getPropertyValue('--w') || '50%';
+      setTimeout(() => { bar.style.width = target; }, i * 120);
+    });
+  }
+});
 
 /* ══════════════════════════════════════
    GSAP SCROLL ANIMATIONS
@@ -91,123 +103,128 @@ function st(trigger, start = 'top 88%') {
   return { trigger, start, once: true };
 }
 
-gsap.utils.toArray('.s-tag').forEach(el => {
-  gsap.from(el, { x: -28, opacity: 0, duration: 0.75, ease: easeSlide, scrollTrigger: st(el) });
+gsap.utils.toArray('.s-eyebrow').forEach(el => {
+  gsap.from(el, { x: -22, opacity: 0, duration: 0.7, ease: easeSlide, scrollTrigger: st(el) });
 });
 
 gsap.utils.toArray('.s-title').forEach(el => {
-  gsap.from(el, { clipPath: 'inset(0 0 100% 0)', y: 24, duration: 1.25, ease, scrollTrigger: st(el, 'top 90%') });
+  gsap.from(el, { y: 28, opacity: 0, duration: 1.05, ease, scrollTrigger: st(el, 'top 90%') });
 });
 
-gsap.utils.toArray('.s-body').forEach(el => {
-  gsap.from(el, { y: 28, opacity: 0, duration: 0.95, ease: easeSlide, scrollTrigger: st(el) });
+gsap.utils.toArray('.sec-lead').forEach(el => {
+  gsap.from(el, { y: 22, opacity: 0, duration: 0.85, ease: easeSlide, scrollTrigger: st(el) });
 });
 
-gsap.from('.ap-img-main', {
-  clipPath: 'inset(100% 0 0 0)', duration: 1.45, ease,
-  scrollTrigger: { trigger: '.ap-visual', start: 'top 82%', once: true }
-});
-gsap.from('.ap-img-sec', {
-  clipPath: 'inset(100% 0 0 0)', duration: 1.45, delay: 0.22, ease,
-  scrollTrigger: { trigger: '.ap-visual', start: 'top 82%', once: true }
-});
-gsap.from('.ap-medal', {
-  scale: 0, opacity: 0, duration: 0.75, delay: 0.65, ease: 'back.out(1.5)',
-  scrollTrigger: { trigger: '.ap-visual', start: 'top 82%', once: true }
+gsap.from('.hero-eyebrow', { y: 22, opacity: 0, duration: 0.7, delay: 2.3, ease: easeSlide });
+gsap.from('.hero-h1',      { y: 36, opacity: 0, duration: 1.1, delay: 2.4, ease });
+gsap.from('.hero-sub',     { y: 22, opacity: 0, duration: 0.9, delay: 2.55, ease: easeSlide });
+gsap.from('.hero-btns > *',{ y: 18, opacity: 0, duration: 0.75, stagger: 0.1, delay: 2.7, ease: easeSlide });
+gsap.from('.trust-item',   { y: 20, opacity: 0, duration: 0.7, stagger: 0.1, delay: 2.9, ease: easeSlide });
+
+gsap.from('.ap-lead, .ap-sign', {
+  y: 24, opacity: 0, duration: 0.9, stagger: 0.15, ease: easeSlide,
+  scrollTrigger: st('.apropos-strip')
 });
 
-gsap.from('.vm-card', {
-  y: 34, opacity: 0, duration: 0.85, stagger: 0.18, ease: easeSlide,
-  scrollTrigger: { trigger: '.vm-grid', start: 'top 88%', once: true }
+gsap.from('.why-card', {
+  y: 38, opacity: 0, duration: 0.9, stagger: 0.1, ease,
+  scrollTrigger: st('.why-grid', 'top 85%')
 });
 
-gsap.from('.srv-intro', {
-  x: 40, opacity: 0, duration: 0.9, ease: easeSlide,
-  scrollTrigger: { trigger: '.srv-header', start: 'top 88%', once: true }
+gsap.from('.market-stat', {
+  y: 30, opacity: 0, duration: 0.85, stagger: 0.12, ease: easeSlide,
+  scrollTrigger: st('.market-side')
 });
 
-gsap.from('.srv-card', {
-  y: 70, opacity: 0, scale: 0.96, duration: 1.1, stagger: 0.14, ease,
-  scrollTrigger: { trigger: '.srv-grid', start: 'top 86%', once: true }
-});
-
-gsap.from('.proj-header .s-body', {
-  y: 22, opacity: 0, duration: 0.85, delay: 0.2, ease: easeSlide,
-  scrollTrigger: { trigger: '.proj-header', start: 'top 88%', once: true }
+gsap.from('.city-row', {
+  y: 18, opacity: 0, duration: 0.7, stagger: 0.08, ease: easeSlide,
+  scrollTrigger: st('.market-cities')
 });
 
 gsap.from('.proj-card', {
-  y: 80, opacity: 0, duration: 1.2, stagger: 0.16, ease,
-  scrollTrigger: { trigger: '.proj-grid', start: 'top 88%', once: true }
+  y: 60, opacity: 0, duration: 1.0, stagger: 0.14, ease,
+  scrollTrigger: st('.proj-grid', 'top 86%')
 });
 
-gsap.to('#pbBg', {
-  y: 130, ease: 'none',
-  scrollTrigger: { trigger: '.pb-band', start: 'top bottom', end: 'bottom top', scrub: 1.2 }
+gsap.from('.srv-card', {
+  y: 40, opacity: 0, duration: 0.85, stagger: 0.08, ease,
+  scrollTrigger: st('.srv-grid', 'top 86%')
 });
 
-gsap.from('.pb-title', {
-  y: 40, opacity: 0, duration: 1.1, ease,
-  scrollTrigger: { trigger: '.pb-band', start: 'top 80%', once: true }
-});
-gsap.from('.pb-content .btn-gold', {
-  y: 24, opacity: 0, duration: 0.85, delay: 0.2, ease: easeSlide,
-  scrollTrigger: { trigger: '.pb-band', start: 'top 80%', once: true }
+gsap.from('.founder-visual', {
+  clipPath: 'inset(0 100% 0 0)', duration: 1.3, ease,
+  scrollTrigger: st('.founder-card', 'top 82%')
 });
 
-gsap.from('.acc-card', {
-  x: -50, opacity: 0, duration: 1.0, stagger: 0.16, ease,
-  scrollTrigger: { trigger: '.acc-cards', start: 'top 85%', once: true }
-});
-gsap.from('.acc-img', {
-  clipPath: 'inset(0 100% 0 0)', duration: 1.35, ease,
-  scrollTrigger: { trigger: '.acc-visual', start: 'top 82%', once: true }
-});
-gsap.from('.acc-quote', {
-  y: 24, opacity: 0, duration: 0.85, delay: 0.4, ease: easeSlide,
-  scrollTrigger: { trigger: '.acc-visual', start: 'top 82%', once: true }
+gsap.from('.founder-quote, .founder-sign', {
+  y: 24, opacity: 0, duration: 0.9, stagger: 0.15, delay: 0.25, ease: easeSlide,
+  scrollTrigger: st('.founder-card', 'top 82%')
 });
 
-gsap.from('.inv-left', {
-  x: -48, opacity: 0, duration: 1.1, ease,
-  scrollTrigger: { trigger: '#investisseur', start: 'top 82%', once: true }
-});
-gsap.from('.inv-box', {
-  x: 48, opacity: 0, duration: 1.1, ease,
-  scrollTrigger: { trigger: '#investisseur', start: 'top 82%', once: true }
-});
-gsap.from('.inv-perk', {
-  x: -20, opacity: 0, duration: 0.65, stagger: 0.09, ease: easeSlide,
-  scrollTrigger: { trigger: '.inv-perks', start: 'top 88%', once: true }
+gsap.from('.test-card', {
+  y: 36, opacity: 0, duration: 0.9, stagger: 0.12, ease,
+  scrollTrigger: st('.test-grid')
 });
 
-gsap.from('.contact-left', {
-  x: -50, opacity: 0, duration: 1.1, ease,
-  scrollTrigger: { trigger: '#contact', start: 'top 82%', once: true }
+gsap.from('.faq-item', {
+  y: 20, opacity: 0, duration: 0.7, stagger: 0.08, ease: easeSlide,
+  scrollTrigger: st('.faq-list')
 });
-gsap.from('.contact-form', {
-  x: 50, opacity: 0, duration: 1.1, ease,
-  scrollTrigger: { trigger: '#contact', start: 'top 82%', once: true }
+
+gsap.from('.inv-left, .inv-box', {
+  y: 30, opacity: 0, duration: 1.0, stagger: 0.15, ease,
+  scrollTrigger: st('#investisseur', 'top 82%')
 });
-gsap.from('.c-row', {
-  y: 18, opacity: 0, duration: 0.65, stagger: 0.12, ease: easeSlide,
-  scrollTrigger: { trigger: '.c-info', start: 'top 88%', once: true }
+
+gsap.from('.inv-perks li', {
+  x: -16, opacity: 0, duration: 0.6, stagger: 0.07, ease: easeSlide,
+  scrollTrigger: st('.inv-perks', 'top 88%')
+});
+
+gsap.from('.contact-left, .contact-form', {
+  y: 30, opacity: 0, duration: 1.0, stagger: 0.15, ease,
+  scrollTrigger: st('#contact', 'top 82%')
 });
 
 gsap.from('footer .footer-top > *', {
-  y: 28, opacity: 0, duration: 0.9, stagger: 0.18, ease: easeSlide,
-  scrollTrigger: { trigger: 'footer', start: 'top 90%', once: true }
+  y: 24, opacity: 0, duration: 0.85, stagger: 0.12, ease: easeSlide,
+  scrollTrigger: st('footer', 'top 90%')
 });
 
-['.ap-img-main', '.ap-img-sec', '.acc-img'].forEach(sel => {
-  const el = document.querySelector(sel);
-  if (!el) return;
-  gsap.to(el, {
-    backgroundPositionY: '+=55px', ease: 'none',
-    scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: 1.4 }
-  });
-});
+/* ══════════════════════════════════════
+   LIFESTYLE CAROUSEL
+══════════════════════════════════════ */
+const lsTrack = document.getElementById('lsTrack');
+const lsIdx   = document.getElementById('lsIdx');
+const lsTot   = document.getElementById('lsTot');
+const lsPrev  = document.getElementById('lsPrev');
+const lsNext  = document.getElementById('lsNext');
 
+if (lsTrack) {
+  const slides = [...lsTrack.querySelectorAll('.ls-slide')];
+  lsTot.textContent = String(slides.length).padStart(2, '0');
+
+  function updateLsIndex() {
+    const center = lsTrack.scrollLeft + lsTrack.clientWidth / 2;
+    let nearest = 0, best = Infinity;
+    slides.forEach((s, i) => {
+      const c = s.offsetLeft + s.clientWidth / 2;
+      const d = Math.abs(c - center);
+      if (d < best) { best = d; nearest = i; }
+    });
+    lsIdx.textContent = String(nearest + 1).padStart(2, '0');
+  }
+
+  function scrollBy(dir) {
+    const w = slides[0].clientWidth + 20;
+    lsTrack.scrollBy({ left: dir * w, behavior: 'smooth' });
+  }
+
+  lsPrev.addEventListener('click', () => scrollBy(-1));
+  lsNext.addEventListener('click', () => scrollBy(1));
+  lsTrack.addEventListener('scroll', updateLsIndex, { passive: true });
+  updateLsIndex();
+}
 
 /* ══════════════════════════════════════
    HAMBURGER MENU
@@ -244,7 +261,7 @@ document.querySelectorAll('.mob-nav-links a, .mob-nav-cta').forEach(a => {
 /* ══════════════════════════════════════
    SMOOTH ANCHORS
 ══════════════════════════════════════ */
-document.querySelectorAll('a[href^="#"]').forEach(a => {
+document.querySelectorAll('a[href^="#"]:not([data-appt])').forEach(a => {
   a.addEventListener('click', e => {
     const t = document.querySelector(a.getAttribute('href'));
     if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
@@ -261,19 +278,33 @@ if (window.matchMedia('(hover: none)').matches) {
 }
 
 /* ══════════════════════════════════════
+   LANGUAGE PILL (visual only)
+══════════════════════════════════════ */
+document.querySelectorAll('.nav-lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.nav-lang-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+/* ══════════════════════════════════════
    PROJECT MODAL
 ══════════════════════════════════════ */
+const TRODI_BASE = 'Trodi%20real%20estate/';
+const AZUREA = TRODI_BASE + 're%CC%81sidance%20azurea/';
+const DJELFA = TRODI_BASE + 're%CC%81sidance%20djelfa/';
+
 const PROJECTS = {
   azurea: {
-    image:       'alger.jpg',
-    subtitle:    'Alger — Résidences de Luxe',
+    image:       AZUREA + 'ChatGPT%20Image%2012%20mai%202026%20a%CC%80%2014_06_03.png',
+    subtitle:    'Alger — Résidences de luxe',
     title:       'Résidence Azurea',
     description: "Résidence Azurea offre une expérience de vie exceptionnelle avec des vues panoramiques sur la baie d'Alger. Chaque appartement est conçu avec des matériaux de haute qualité et des finitions luxueuses. Accès direct à la plage privée et équipements 5 étoiles.",
     details: [
-      { label: 'Localisation',       value: 'Alger' },
-      { label: "Nombre d'unités",    value: '120' },
-      { label: 'Prix à partir de',   value: '45 000 000 DA' },
-      { label: 'Développeur',        value: 'TRODI Construction TC' }
+      { label: 'Localisation',     value: 'Alger' },
+      { label: "Nombre d'unités",  value: '120' },
+      { label: 'Prix à partir de', value: '45 000 000 DA' },
+      { label: 'Développeur',      value: 'TRODI Construction TC' }
     ],
     features: [
       'Vue mer panoramique',      'Plage privée accès direct',
@@ -287,15 +318,15 @@ const PROJECTS = {
     ]
   },
   skyview: {
-    image:       'djelfa.jpg',
-    subtitle:    'Djelfa — Appartements Premium',
+    image:       DJELFA + '001.jpg',
+    subtitle:    'Djelfa — Appartements premium',
     title:       'Skyview Garden',
     description: "Skyview Garden redéfinit le confort urbain au cœur de Djelfa. Des appartements spacieux entourés de jardins suspendus et d'espaces verts luxuriants, offrant une parenthèse de sérénité avec une piscine panoramique au sommet de l'immeuble.",
     details: [
-      { label: 'Localisation',       value: 'Djelfa' },
-      { label: "Nombre d'unités",    value: '84' },
-      { label: 'Prix à partir de',   value: '28 000 000 DA' },
-      { label: 'Développeur',        value: 'TRODI Construction TC' }
+      { label: 'Localisation',     value: 'Djelfa' },
+      { label: "Nombre d'unités",  value: '84' },
+      { label: 'Prix à partir de', value: '28 000 000 DA' },
+      { label: 'Développeur',      value: 'TRODI Construction TC' }
     ],
     features: [
       'Piscine panoramique rooftop', 'Jardins suspendus',
@@ -309,8 +340,8 @@ const PROJECTS = {
     ]
   },
   palmriviera: {
-    image:       'satif.jpg',
-    subtitle:    'Sétif — Villas Résidentielles',
+    image:       TRODI_BASE + 'ChatGPT%20Image%2014%20fe%CC%81vr.%202026%20a%CC%80%2016_20_07.png',
+    subtitle:    'Sétif — Villas résidentielles',
     title:       'Palm Riviera',
     description: "Palm Riviera propose une collection exclusive de mini-villas à Sétif, alliant architecture contemporaine et art de vivre méditerranéen. Chaque villa dispose de son propre jardin privatif, d'un espace barbecue et d'un accès exclusif aux équipements du domaine.",
     details: [
@@ -346,19 +377,19 @@ function trapFocus(e) {
     if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
     else            { if (document.activeElement === last)  { e.preventDefault(); first.focus(); } }
   }
-  if (e.key === 'Escape') closeModal();
+  if (e.key === 'Escape') closeProjModal();
 }
 
-function openModal(key) {
+function openProjModal(key) {
   const p = PROJECTS[key];
   if (!p) return;
   prevFocus = document.activeElement;
 
-  modal.querySelector('.pmo-hero-img').src         = p.image;
-  modal.querySelector('.pmo-hero-img').alt         = p.title;
-  modal.querySelector('.pmo-hero-loc').textContent  = p.subtitle;
+  modal.querySelector('.pmo-hero-img').src           = p.image;
+  modal.querySelector('.pmo-hero-img').alt           = p.title;
+  modal.querySelector('.pmo-hero-loc').textContent   = p.subtitle;
   modal.querySelector('.pmo-hero-title').textContent = p.title;
-  modal.querySelector('.pmo-desc').textContent      = p.description;
+  modal.querySelector('.pmo-desc').textContent       = p.description;
 
   modal.querySelector('.pmo-details').innerHTML = p.details.map(d =>
     `<div class="pmo-detail">
@@ -385,7 +416,7 @@ function openModal(key) {
   setTimeout(() => modal.querySelector('.pmo-close').focus(), 50);
 }
 
-function closeModal() {
+function closeProjModal() {
   modal.classList.remove('open');
   modal.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
@@ -393,15 +424,54 @@ function closeModal() {
   if (prevFocus) prevFocus.focus();
 }
 
-document.querySelectorAll('[data-project]').forEach(btn => {
-  btn.addEventListener('click', () => openModal(btn.dataset.project));
+document.querySelectorAll('[data-project]').forEach(el => {
+  el.addEventListener('click', e => {
+    e.stopPropagation();
+    openProjModal(el.dataset.project);
+  });
 });
 
-modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-modal.querySelector('.pmo-close').addEventListener('click', closeModal);
-modal.querySelector('.pmo-btn-close').addEventListener('click', closeModal);
+modal.addEventListener('click', e => { if (e.target === modal) closeProjModal(); });
+modal.querySelector('.pmo-close').addEventListener('click', closeProjModal);
+modal.querySelector('.pmo-btn-close').addEventListener('click', closeProjModal);
 modal.querySelector('.pmo-btn-brochure').addEventListener('click', () => {
   const title   = modal.querySelector('.pmo-hero-title').textContent;
   const subject = encodeURIComponent(`Demande de brochure — ${title}`);
   window.location.href = `mailto:trodisalsabil202@gmail.com?subject=${subject}`;
+});
+
+/* ══════════════════════════════════════
+   APPOINTMENT MODAL
+══════════════════════════════════════ */
+const apptModal = document.getElementById('appt-modal');
+
+function openApptModal() {
+  document.body.style.overflow = 'hidden';
+  apptModal.classList.add('open');
+  apptModal.setAttribute('aria-hidden', 'false');
+}
+
+function closeApptModal() {
+  apptModal.classList.remove('open');
+  apptModal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('[data-appt]').forEach(el => {
+  el.addEventListener('click', e => {
+    e.preventDefault();
+    openApptModal();
+  });
+});
+
+apptModal.addEventListener('click', e => { if (e.target === apptModal) closeApptModal(); });
+apptModal.querySelector('.amo-close').addEventListener('click', closeApptModal);
+apptModal.querySelector('.cf-submit').addEventListener('click', e => {
+  e.preventDefault();
+  alert('Merci ! Votre demande de rendez-vous a été enregistrée. Notre équipe vous recontacte sous 24h.');
+  closeApptModal();
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && apptModal.classList.contains('open')) closeApptModal();
 });
