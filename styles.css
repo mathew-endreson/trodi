@@ -66,6 +66,98 @@ button {
   background: none;
 }
 
+/* ══════════ LOADING SCREEN ══════════
+   Self-hiding via CSS keyframes — if JS fails to run, the loader
+   still disappears on its own after the animation finishes. */
+
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  animation: loaderOut 0.7s cubic-bezier(.6, 0, .3, 1) forwards;
+  animation-delay: 1.6s;
+}
+
+#loader .loader-logo {
+  height: 96px;
+  width: auto;
+  opacity: 0;
+  transform: scale(.92);
+  animation: loaderLogoIn 1s cubic-bezier(.2, .7, .2, 1) forwards;
+  animation-delay: .1s;
+}
+
+#loader .loader-tag {
+  font-size: 10px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .6);
+  opacity: 0;
+  animation: loaderTagIn .8s cubic-bezier(.2, .7, .2, 1) forwards;
+  animation-delay: .45s;
+}
+
+#loader .loader-bar {
+  position: relative;
+  width: 180px;
+  height: 1px;
+  background: rgba(255, 255, 255, .12);
+  overflow: hidden;
+  opacity: 0;
+  animation: loaderTagIn .6s cubic-bezier(.2, .7, .2, 1) forwards;
+  animation-delay: .55s;
+}
+
+#loader .loader-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  animation: loaderSweep 1.4s linear infinite;
+  animation-delay: .65s;
+}
+
+@keyframes loaderLogoIn {
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes loaderTagIn {
+  to { opacity: 1; }
+}
+
+@keyframes loaderSweep {
+  to { left: 100%; }
+}
+
+@keyframes loaderOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.02);
+    pointer-events: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #loader {
+    animation-delay: 0s;
+    animation-duration: 0.2s;
+  }
+  #loader .loader-logo,
+  #loader .loader-tag,
+  #loader .loader-bar { animation: none; opacity: 1; transform: none; }
+  #loader .loader-bar::after { animation: none; }
+}
+
 /* ══════════ SCROLL BAR & CURSOR ══════════ */
 #scroll-bar {
   position: fixed;
@@ -1330,8 +1422,8 @@ footer {
 }
 
 .foot-logo {
-  height: 48px;
-  filter: brightness(0) invert(1);
+  height: 56px;
+  width: auto;
   margin-bottom: 20px;
 }
 
